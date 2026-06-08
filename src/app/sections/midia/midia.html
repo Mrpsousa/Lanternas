@@ -1,0 +1,19 @@
+<section class="section midia" id="midia">
+  <div class="container">
+    <h2 class="section-title">Lanternas na Mídia</h2>
+    <p class="section-subtitle">Confira as notícias e matérias sobre o nosso trabalho</p>
+
+    <div class="midia__grid">
+      @for (item of data.midias(); track item.titulo) {
+        <a [href]="item.url" target="_blank" rel="noopener" class="midia__card">
+          <div class="midia__tag">{{ item.fonte }}</div>
+          <p class="midia__title">{{ item.titulo }}</p>
+          <span class="midia__link">
+            Ler matéria
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

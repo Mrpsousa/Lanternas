@@ -1,0 +1,121 @@
+.projeto {
+  background: var(--color-bg-light);
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  &__card {
+    background: var(--color-bg-section);
+    padding: 32px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+    border: 1px solid transparent;
+
+    &:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  &__card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  &__card-text {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+
+    em {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+  }
+
+  &__pillars {
+    text-align: center;
+  }
+
+  &__pillars-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  &__pillars-grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  &__pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 48px;
+    background: var(--color-bg-section);
+    border-radius: var(--radius-md);
+    border-bottom: 4px solid var(--pillar-color);
+    transition: all var(--transition);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__pillar-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--pillar-color);
+  }
+
+  &__pillar-label {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 992px) {
+  .projeto {
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+
+    &__pillars-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__pillar {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}

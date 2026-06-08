@@ -1,0 +1,31 @@
+services:
+  # ============================================
+  # Development Mode (hot-reload via Angular dev server)
+  # ============================================
+  app-dev:
+    container_name: lanternas-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npx ng serve --host 0.0.0.0 --poll 2000
+
+  # ============================================
+  # Production Mode (SSR with Node.js)
+  # ============================================
+  app:
+    container_name: lanternas-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    profiles:
+      - prod

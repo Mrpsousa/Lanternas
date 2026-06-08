@@ -1,0 +1,21 @@
+# ============================================
+# Development Stage (hot-reload)
+# ============================================
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
+
+# Copy deps first for better caching
+COPY package.json package-lock.json ./
+RUN npm ci --ignore-scripts
+
+COPY . .
+
+EXPOSE 4200
+
+ENV NODE_ENV=development
+
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--poll", "2000"]

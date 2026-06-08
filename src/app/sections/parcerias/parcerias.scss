@@ -1,0 +1,60 @@
+.parcerias {
+  background: var(--color-bg-light);
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 32px;
+    background: var(--color-bg-section);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+    min-height: 80px;
+    min-width: 160px;
+
+    &:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    img {
+      max-height: 50px;
+      max-width: 140px;
+      object-fit: contain;
+      filter: grayscale(30%);
+      transition: filter var(--transition);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
+    }
+  }
+
+  &__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .parcerias__grid {
+    gap: 16px;
+  }
+
+  .parcerias__item {
+    min-width: 130px;
+    padding: 16px 24px;
+  }
+}

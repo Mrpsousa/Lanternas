@@ -1,0 +1,24 @@
+<section class="section iniciativas" id="iniciativas">
+  <div class="container">
+    <h2 class="section-title">Conheça Nossas Iniciativas</h2>
+    <p class="section-subtitle">Projetos que transformam vidas através da educação, cultura e oportunidade</p>
+
+    <div class="iniciativas__grid">
+      @for (iniciativa of data.iniciativas(); track iniciativa.id) {
+        <div class="iniciativa-card">
+          <div class="iniciativa-card__image">
+            <img [src]="iniciativa.imagem" [alt]="iniciativa.titulo" loading="lazy" />
+          </div>
+          <div class="iniciativa-card__body">
+            <h3 class="iniciativa-card__title">{{ iniciativa.titulo }}</h3>
+            <p class="iniciativa-card__desc">{{ iniciativa.descricao }}</p>
+            <a [href]="iniciativa.link" target="_blank" class="btn btn-outline iniciativa-card__btn">
+              Saiba mais
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

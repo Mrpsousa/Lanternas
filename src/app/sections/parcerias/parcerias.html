@@ -1,0 +1,18 @@
+<section class="section parcerias">
+  <div class="container">
+    <h2 class="section-title">Parcerias</h2>
+    <p class="section-subtitle">Empresas e instituições que acreditam no nosso trabalho</p>
+
+    <div class="parcerias__grid">
+      @for (parceria of data.parcerias(); track parceria.nome) {
+        <a [href]="parceria.url" target="_blank" rel="noopener" class="parcerias__item">
+          @if (parceria.logo) {
+            <img [src]="parceria.logo" [alt]="parceria.nome" loading="lazy" />
+          } @else {
+            <span class="parcerias__name">{{ parceria.nome }}</span>
+          }
+        </a>
+      }
+    </div>
+  </div>
+</section>
